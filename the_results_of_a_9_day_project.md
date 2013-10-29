@@ -70,3 +70,5 @@ Amongst other things I managed to:
 * devops
 
 And learned some CSS3 animations on the way.
+
+### But what's `ng2`? Please, have a read [here](http://ng2.github.io)
