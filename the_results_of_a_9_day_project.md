@@ -1,6 +1,6 @@
 # The results of a ~~9~~ 10 day project
 
-## Foreword (or tl;dr)
+## Foreword / Results (or tl;dr)
 
 9 days have passed since I started working on Message.Me –to be fair, it's been about 17, but I've only worked 9 on it: the first 7 and the last 2.
 
@@ -26,7 +26,7 @@ It was my first attempt at a scalable, fail-over capable, hybrid HTTP/WS messagi
 | 1 on * | 8     | 4150     | 2m2s       | 2.7s    | 46ms    | 8ms     | 135s    |
 | 1 on N | 8     | 8200     | 3m20s      | 16.5s   | 33ms    | 6ms     | 208s    |
 
-This was ran locally on a quad-core 2.3ghz i7 late-2012 Mac mini, with the bottleneck being my 1mbps upstream (yeah, *that* slow). That's 8 workers, sending 100 messages each.
+This was ran locally on a quad-core 2.3ghz i7 late-2012 Mac mini, with the bottleneck being my 1mbps upstream (yeah, *that* slow). That's 8 workers, sending 100 messages to each other.
 
 The type field specifies the number of recipients a message:
 
@@ -34,6 +34,18 @@ The type field specifies the number of recipients a message:
 * `1 on 2` would be someone dividing risks when asking out 2 girls for the movies.
 * `1 on 5` would be an average group conversation.
 * `1 on *` is the whole spectrum (including massive spammers) as it's random from 1 to N.
-* `1 on N` is stress testing.
+* `1 on N` is stress testing by using all online users.
 
 I'd say this numbers are pretty sweet –*even thou there's a lot of room for improvement*.
+
+## Motivation
+
+It all started when a friend of mine, Omar Siddiqui – [@buctik](https://twitter.com/buctik), asked me to build a messaging app that used web sockets. It really just started there. `0.1.0` of `ng2` was just baked and it felt the right thing to do to try it out, build some modules and just have some fun with it.
+
+I should tell, I'm a big picture guy. I take a little idea and it's fairly easy for me to see something way, way bigger than what was presented. This doesn't mean my big picture is worth a shot, or even accurate at all, but it's the way I see things I guess. And I thought
+
+> hey, what if actually made a real-time messaging app leveraging aws that could send like a fudge load of messages and support sockets failover recovery and all whistles and bells, and have an angularjs powered client to make it even more awesome
+
+So yeah, I'm motivated by making awesome systems. 
+
+##### Disclaimer: I suck at UI.
