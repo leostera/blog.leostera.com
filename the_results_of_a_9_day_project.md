@@ -71,4 +71,7 @@ Amongst other things I managed to:
 
 And learned some CSS3 animations on the way.
 
-### But what's `ng2`? Please, have a read [here](http://ng2.github.io)
+#### But what's `ng2`?
+Please, have a read [here](http://ng2.github.io)
+#### Where are all those angular modules?
+They are [here](https://github.com/ng2)
