@@ -49,3 +49,24 @@ I should tell, I'm a big picture guy. I take a little idea and it's fairly easy 
 So yeah, I'm motivated by making awesome systems. 
 
 ##### Disclaimer: I suck at UI.
+
+## Implementation
+
+So the first day started and I think I worked only on the client. I spent a lot of time inspecting the ins and outs of the `OAuth2` protocol, and how `AWS SQS` really works. I think I was crunching about 1.something kLOC a day.
+
+I committed the baddest mistake: I didn't test.
+
+And I committed an even worse one: the server was a piece of shit. 
+
+Amongst other things I managed to:
+
+* architect the system on `AWS`
+* make updates to `ng2`
+* craft 5 modules for angular: `loading`, `auth`, `auth-facebook`, `debug` and `ws`
+* make a very simple `dependency injector` for node based on angular's one
+* make the first db design draft
+* a little `cors middleware` for connect
+* design the UI twice –I'm bad, thou working on it :)
+* devops
+
+And learned some CSS3 animations on the way.
