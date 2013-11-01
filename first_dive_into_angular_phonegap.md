@@ -119,7 +119,7 @@ ios-sim@1.8.2 /usr/local/lib/node_modules/ios-sim
 
 Cool. Now we should be good to run our app –at least in the simulator–, right?
 
-[Image: phonegap running sample app on iOS emulator with the console by it's side]
+![PhoneGap sample app running on iOS emulator with the console by it's side](https://s3.amazonaws.com/blog.leostera.com/first_dive_running_emulator.png "PhoneGap sample app running on iOS emulator with the console by it's side")
 
 There we go. Now let's try to run it in *the actual device*. To do that we will have to make a build and run it with XCode, like this:
 
@@ -133,6 +133,7 @@ open platform/ios/[projectname].xcodeproj
 And after setting up XCode's signing certificates we get this:
 
 [Image: phonegap app running on the iPhone]
+![PhoneGap app running on the iPhone](https://s3.amazonaws.com/blog.leostera.com/first_dive_running_device.PNG "PhoneGap app running on the iPhone")
 
 ## The AngularJS Part
 Cool, now we have a running application on a phone. We can tweak it a bit and rerun to see the changes. It's plain old HTML5/CSS3/JavaScript.
