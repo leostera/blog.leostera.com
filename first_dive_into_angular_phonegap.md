@@ -1,8 +1,17 @@
 # First Dive into AngularJS and PhoneGap
+I was yet to find a comprehensive first dive into AngularJS and PhoneGap. So I decided to write one myself. This is not a definitive guide and it's definitely both opinionated and might have, well, some gaps. I'm learning this myself too. 
+
+## Table of Contents:
+1. Motivation
+* Your first PhoneGap App
+* Running a PhoneGap App
+* The AngularJS Part
+* The ExpressJS Part 
+* Conclusion
 
 ## Motivation
 
-## Installation
+## Your first PhoneGap App
 
 The install process is very straight forward. Make sure you have [node.js](http://nodejs.org) installed and then open a terminal and run:
 
@@ -27,9 +36,17 @@ Well that was pretty straight forward. You can now `cd [yourappname]` and you'll
        |-  screen
     |- spec
        |-  lib
+    |- config.xml
+    |- icon.png
+    |- index.html
+    |- spec.html
 ```
 
-But before we dive into *what is all this stuff*, we'll try to run it. On a phone. So have your phone handy. I own a second batch iPhone 5 that should do the trick. Let's focus that terminal we have opened and run `phonegap` to see what options are available:
+That `www` folder sure looks familiar. But before we dive into *what is all this stuff*, we'll try to run it.
+
+## Running a PhoneGap App
+
+So have your phone handy. I own a second batch iPhone 5 that should do the trick. Let's focus that terminal we have opened and run `phonegap` to see what options are available:
 
 ```
 Usage: phonegap [options] [commands]
@@ -119,3 +136,8 @@ And after setting up XCode's signing certificates we get this:
 
 ## The AngularJS Part
 Cool, now we have a running application on a phone. We can tweak it a bit and rerun to see the changes. It's plain old HTML5/CSS3/JavaScript.
+
+## The ExpressJS Part
+The server is usually not even mentioned in this kind of applications, and that's alright to some extent. People are expected to know. I'm about to see if this kind of applications require some extra server-side configuration and I'll talk about it here.
+
+## Conclusion
