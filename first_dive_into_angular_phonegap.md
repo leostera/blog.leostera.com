@@ -132,7 +132,6 @@ open platform/ios/[projectname].xcodeproj
 
 And after setting up XCode's signing certificates we get this:
 
-[Image: phonegap app running on the iPhone]
 ![PhoneGap app running on the iPhone](https://s3.amazonaws.com/blog.leostera.com/first_dive_running_device.PNG "PhoneGap app running on the iPhone")
 
 ## The AngularJS Part
