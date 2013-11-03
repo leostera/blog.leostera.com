@@ -5,6 +5,11 @@ I've been a –if it's of the readers allowance– *hacker* for some time now. T
 > A hacker is an artist, a tinkerer, a craftsman.
 > In the artistry of computer programming, a hacker creates programs that solve problems.
 
+### TL;DR
+I love how TucJS is making the development community flourish in Tucuman. There's a RubyTuc meetups starting in a few days and the idea of a PyTuc is starting to resonate. Also a UX event is on it's way, too! I'd like to see that as a monthly meetup thou.
+
+
+
 ## Motivation
 
 I started TucJS with the sole purpose of finding likeminded peers that would enjoy JavaScript programming as much as I do; whether it was running on a browser or in a server, didn't matter. And I did. I met amazing people with amazing ideas. I reconnected with long-lost acquaintances who were just bright people. 
@@ -35,4 +40,11 @@ And then some corollaries that apply to meetups in general that arise from a sim
 * if something *was* gratis but it's not anymore I'm going to complain
 
 
+## Results
+I just stepped down as Organizer, recommending Mario Colque for the job. It pleases me to know that he's more than capable and has the goodwill to take the JavaScript community in Tucuman forward while I am absent. I wish only the best to him.
 
+It is also very rewarding to see other groups forking off the ideals that impregnated TucJS. RubyTuc, a local Ruby meetup, is starting this next Thursday (11.07.2013); there are ideas floating around too for PyTuc, to discuss the much beloved creation of Guido.
+
+Seeing a community of bright, passionate developers give back to it's scene and just make the local environment flourish is indeed something worth being part of.
+
+I'm just loving this.
