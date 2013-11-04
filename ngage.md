@@ -3,19 +3,21 @@
 
 ## Table of Contents
 1. [Philosophy](#philosophy)
-* [Modules](#modules)
-* [Entities](#entities)
-* [Systems](#systems)
-* [Layers](#layers)
-* [Scenes](#scenes)
-* [Config blocks](#config-blocks)
-* [Events](#events)
+2. Moving Parts
+    * [Modules](#modules)
+    * [Entities](#entities)
+    * [Systems](#systems)
+    * [Layers](#layers)
+    * [Scenes](#scenes)
+    * [Config blocks](#config-blocks)
+    * [Events](#events)
+* [The Main Loop](#the-main-loop)
 
 ## Philosophy
 `ngage` is inspired by this ideas:
 
 * Clarity is better than cleverness
-* Where repair is implausible, fail fast and noisily 
+* Where repair is implausible, fail fast and noisly
 
 
 ## Modules
@@ -179,13 +181,40 @@ ngage.module('MarioBros').scene('FirstLevel', function (layer1, layer2, ...) {
 
 There has to be either a `configure` function that spawns the layers in the appropriate order or returns an ordered array of the layer objects to be spawned, or a `configure` array of layer objects in the order to be spawned.
 
-## Config
+## Config blocks
 A config block is simply a place in where to configure a given set of systems.
 
 Config blocks get executed before the digest loop kicks in.
 
 ## Events
-Any `entity` can `$emit` an event to all other `entities` in it's containing layer, or it can `$broadcast` something to every single `entity` across `layers` in the current `scene`.
+Any `entity` can `$emit` an event to all other `entities` in it's containing layer, or it can `$broadcast` something to every single `entity` across `layers` in the current `scene`. What will an entity do when an event happens is defined with an `$on` function.
 
 Suppose the Player dies. This could either cause every other `entity` in the `layer` to slow down until the player respawns, or it could actually cause all the `scene` to become gray and kick in a respawn effect that happens on a separate `layer`.
 
+### API
+
+```
+this.$broadcast( eventName, ... )
+```
+This will bubble up the event passing on a variable number of arguments to each of the callbacks registered with `$on`.
+
+```
+this.$emit( eventName, ... )
+```
+This will emit the event to all it's `layer peers` passing on a variable number of arguments to each of the callbacks registered with `$on`.
+
+```
+this.$on( eventName, callbackFn )
+```
+This will execute callbackFn in the context of the given `entity/system` whenever an event with name `eventName` is either `$broadcast`-ed or `$emit`-ed.
+
+
+## The Main Loop
+Now how does this all work? You have already built some nifty systems to render your sprites, to update the position between multiple clients connected between themselves using WebRTC, you have already declared your entities and put the layers in place and all the scenes are ready to go. Even your config blocks already set which scene is the starting point...now what?
+
+### This
+As the config block finishes executing, the main Scene kicks in. It will spawn whichever layers it relies upon. Each of those layers will then attach themselves each and every entity they might depend on. Every single entity will get their share of their systems. And if you've followed the architecture of the framework you should have a perfectly working game.
+
+What's really going on is: there is a $digest cycle that will loop thru your entity checking for $watches, and trigger those accordingly. If at any given point there is an event happening that any living entity or system should respond to, the callbacks listening to those events will be called.
+
+This should really be enough to make complex systems that talk to each other by sending messages thru events.
