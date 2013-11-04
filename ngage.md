@@ -9,9 +9,10 @@
 * Layers
 * Scenes
 * Config blocks
+* Events
 
 ## Philosophy
-`ngage` is inspired by this rules:
+`ngage` is inspired by this ideas:
 
 * Clarity is better than cleverness
 * Where repair is implausible, fail fast and noisily 
@@ -133,6 +134,8 @@ ngage.module('Core').system('Sprite', function ($render, $pool, $uuid) {
 
 As you can see, this `system` does not define a `$get` method, so it's not configurable. `ngage` will complain if you try to inject it into a `config` block.
 
+Other possible uses for systems are data storage common to multiple entities, common functionality, or third-party integrations.
+
 ## Layers
 Layers are sets of objects and systems that work together in an isolated manner. A layer in your game could be NPC's with whom the user has no interaction whatsoever, or it could be used to separate multiple set of enemies so that they do not interact with other sets but they all interact with the player.
 
@@ -143,4 +146,46 @@ ngage.module('MarioBros').layer('Level', function (deps1, deps2, ...) {
     // Layer code
 });
 ```
+
+Layers provide a public API to attach both systems and entities:
+
+```
+Level.attach(Entity, Priority);
+```
+`.attach` will include an entity or system in it's lifecyle with the given priority.
+
+```
+Level.dettach(Entity);
+```
+`.dettach` will remove an entity or system from it's lifecycle.
+
+The priority during attachment will make sure certain entity or system gets executed before or after others.
+
+## Scenes
+Scenes are a handful of layers thrown together in a particular order. They can represent anything that you might need, from a credit's screen to a boss level, or even a menu.
+
+### API
+A scene can be defined by using the `scene` method:
+
+```
+ngage.module('MarioBros').scene('FirstLevel', function (layer1, layer2, ...) {
+    // Level logic
+    
+    this.configure = function () {
+        // spawn layers in a certain order
+    };
+});
+```
+
+There has to be either a `configure` function that spawns the layers in the appropriate order or returns an ordered array of the layer objects to be spawned, or a `configure` array of layer objects in the order to be spawned.
+
+## Config
+A config block is simply a place in where to configure a given set of systems.
+
+Config blocks get executed before the digest loop kicks in.
+
+## Events
+Any `entity` can `$emit` an event to all other `entities` in it's containing layer, or it can `$broadcast` something to every single `entity` across `layers` in the current `scene`.
+
+Suppose the Player dies. This could either cause every other `entity` in the `layer` to slow down until the player respawns, or it could actually cause all the `scene` to become gray and kick in a respawn effect that happens on a separate `layer`.
 
