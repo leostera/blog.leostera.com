@@ -2,14 +2,14 @@
 > A new wave declarative game engine built with JavaScript.
 
 ## Table of Contents
-1. Philosophy
-* Modules
-* Entities
-* Systems
-* Layers
-* Scenes
-* Config blocks
-* Events
+1. [Philosophy](#philosophy)
+* [Modules](#modules)
+* [Entities](#entities)
+* [Systems](#systems)
+* [Layers](#layers)
+* [Scenes](#scenes)
+* [Config blocks](#config-blocks)
+* [Events](#events)
 
 ## Philosophy
 `ngage` is inspired by this ideas:
@@ -18,7 +18,7 @@
 * Where repair is implausible, fail fast and noisily 
 
 
-## Module
+## Modules
 A module is a self contained unit of features. It can include all and any of the other declarable elements within the engine.
 
 It's main purpose is to code in the smallest set of chunks possible, to make it both easily testable and remarkably reusable.
