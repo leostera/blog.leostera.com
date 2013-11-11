@@ -1,19 +1,37 @@
 # Roamer
-Why do all the static site generators out there need to be so complicated and just abuse preprocessors and so many things? It could be really as easy as dropping your .md files in a posts folder and running a one command.
 
-No jade, no coffee, no nothing. ~~Maybe some LESS, but nothing more~~ not even some LESS.
+## CLI
+```
+roamer sitename
+```
+Scaffold the structure of a roamer static site.
 
-It annoys me that the only options out there seem to have a lot of stuff integrated yet produce very basic results.
+```
+cd sitename
+npm i
+```
+Get in there and install dependencies.
 
-I want a static site generator where:
+```
+roamer server
+```
+Starts a local development server or simply run 
 
-1. I only need to worry about writing markdown.
-2. Can have themes I can switch with a flag.f
+```
+roamer build
+```
+Builds the whole site to be deployed.
 
-It should produce just raw HTML that will fit in a template.
+## Editing
+```
+touch sitename/posts/new_post.md
+subl sitename/posts/new_post.md
+```
+Create and open my new post within my posts folder.
 
-## I only need to worry about writing markdown
-There. I said it. I couldn't care less about your expressive jade templating, or your awesome plugin system. I'm trying to write a very straightforward blog in plain markdown and *just perhaps* throw in a nice theme.
+Write in plain markdown. Don't be bothered.
 
-## Can have themes I can switch with a flag
-Themes. Easily installable, easily tweakable. Themes. Easily interchangeable.
+## Themes
+Each `roamer` site has themes.
+
+
